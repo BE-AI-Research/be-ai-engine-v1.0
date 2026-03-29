@@ -1,0 +1,634 @@
+[01:05:07.673 +   0.000s] [INFO ] Log file opened: /mnt/7b9a9b9c-5e1a-4938-a6df-d26a3d856f3a/be-ai-engine-v1.0/kitchen_sink_20260329_010507.log
+[01:05:07.717 +   0.044s] [INFO ] PID=60046, Python=3.12.3
+[01:05:07.718 +   0.045s] [INFO ] === RUN START === server=http://localhost:11434 concurrency=10 waves=3 timeout=120s quick=False vision=True
+[01:05:07.720 +   0.047s] [INFO ] Server health check: OK
+[01:05:07.721 +   0.048s] [PHASE] >>> START: Phase 0: Connectivity & Health Checks
+[01:05:07.722 +   0.048s] [REQ  ] --> Health (root) (GET /health)
+[01:05:07.723 +   0.050s] [RESP ] <-- Health (root) [PASS] 0.002s  {http_status=200}
+[01:05:07.724 +   0.051s] [REQ  ] --> Health (v1) (GET /v1/health)
+[01:05:07.726 +   0.052s] [RESP ] <-- Health (v1) [PASS] 0.002s  {http_status=200}
+[01:05:07.726 +   0.053s] [REQ  ] --> Models list (GET /v1/models)
+[01:05:07.728 +   0.055s] [RESP ] <-- Models list [PASS] 0.002s  {http_status=200}
+[01:05:07.729 +   0.055s] [REQ  ] --> Server status (GET /api/status)
+[01:05:07.730 +   0.057s] [RESP ] <-- Server status [PASS] 0.002s  {http_status=200}
+[01:05:07.731 +   0.058s] [REQ  ] --> Metrics (GET /api/metrics)
+[01:05:07.733 +   0.059s] [RESP ] <-- Metrics [PASS] 0.002s  {http_status=200}
+[01:05:07.733 +   0.060s] [REQ  ] --> Batch info (GET /api/batch)
+[01:05:07.735 +   0.062s] [RESP ] <-- Batch info [PASS] 0.002s  {http_status=200}
+[01:05:07.742 +   0.069s] [REQ  ] --> KV cache stats (GET /api/kv-cache)
+[01:05:07.744 +   0.071s] [RESP ] <-- KV cache stats [PASS] 0.002s  {http_status=200}
+[01:05:07.745 +   0.071s] [REQ  ] --> Capabilities (GET /api/capabilities)
+[01:05:07.746 +   0.073s] [RESP ] <-- Capabilities [PASS] 0.001s  {http_status=200}
+[01:05:07.747 +   0.074s] [PHASE] <<< END:   Phase 0: Connectivity & Health Checks  {passed=8, failed=0, duration=0.03s}
+[01:05:07.748 +   0.074s] [PHASE] >>> START: Phase 1: Coding Problems
+[01:05:07.748 +   0.075s] [REQ  ] --> Red-Black Tree (C++) (/v1/chat/completions)  {max_tokens=2048}
+[01:05:07.749 +   0.076s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[01:05:14.671 +   6.998s] [RESP ] <-- Red-Black Tree (C++) [PASS] 6.923s  {tokens=2048, content_len=5804}
+[01:05:14.711 +   7.038s] [REQ  ] --> LRU Cache (Rust) (/v1/chat/completions)  {max_tokens=1536}
+[01:05:14.712 +   7.039s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1536
+[01:05:19.731 +  12.057s] [RESP ] <-- LRU Cache (Rust) [PASS] 5.019s  {tokens=1536, content_len=3541}
+[01:05:19.771 +  12.097s] [REQ  ] --> A* Pathfinding (Python) (/v1/chat/completions)  {max_tokens=1536}
+[01:05:19.772 +  12.098s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1536
+[01:05:24.780 +  17.107s] [RESP ] <-- A* Pathfinding (Python) [PASS] 5.009s  {tokens=1536, content_len=2364}
+[01:05:24.820 +  17.147s] [REQ  ] --> SQL Query Optimizer (Python) (/v1/chat/completions)  {max_tokens=2048}
+[01:05:24.821 +  17.148s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[01:05:31.725 +  24.052s] [RESP ] <-- SQL Query Optimizer (Python) [PASS] 6.905s  {tokens=2048, content_len=7597}
+[01:05:31.765 +  24.092s] [REQ  ] --> Graph Algorithms (JS) (/v1/chat/completions)  {max_tokens=2048}
+[01:05:31.766 +  24.092s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[01:05:38.669 +  30.995s] [RESP ] <-- Graph Algorithms (JS) [PASS] 6.904s  {tokens=2048, content_len=9212}
+[01:05:38.709 +  31.036s] [PHASE] <<< END:   Phase 1: Coding Problems  {passed=5, failed=0, duration=30.96s}
+[01:05:38.710 +  31.036s] [HEALTH] Probing http://localhost:11434/health ...
+[01:05:38.711 +  31.038s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:05:38.713 +  31.039s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:05:38.714 +  31.040s] [PHASE] >>> START: Phase 2: Reasoning Problems
+[01:05:38.714 +  31.041s] [REQ  ] --> River Crossing (Extended) (/v1/chat/completions)  {max_tokens=1024}
+[01:05:38.715 +  31.042s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1024
+[01:05:42.002 +  34.329s] [RESP ] <-- River Crossing (Extended) [PASS] 3.288s  {tokens=1024, content_len=4032}
+[01:05:42.043 +  34.369s] [REQ  ] --> Sum of Cubes Proof (/v1/chat/completions)  {max_tokens=1536}
+[01:05:42.043 +  34.370s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1536
+[01:05:47.088 +  39.415s] [RESP ] <-- Sum of Cubes Proof [PASS] 5.046s  {tokens=1536, content_len=5184}
+[01:05:47.128 +  39.455s] [REQ  ] --> Einstein's Riddle (/v1/chat/completions)  {max_tokens=2048}
+[01:05:47.129 +  39.456s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[01:05:54.209 +  46.536s] [RESP ] <-- Einstein's Riddle [PASS] 7.081s  {tokens=2048, content_len=9108}
+[01:05:54.249 +  46.576s] [REQ  ] --> 12 Balls Problem (/v1/chat/completions)  {max_tokens=2048}
+[01:05:54.251 +  46.578s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[01:06:01.165 +  53.492s] [RESP ] <-- 12 Balls Problem [PASS] 6.916s  {tokens=2048, content_len=6797}
+[01:06:01.205 +  53.532s] [PHASE] <<< END:   Phase 2: Reasoning Problems  {passed=4, failed=0, duration=22.49s}
+[01:06:01.206 +  53.532s] [HEALTH] Probing http://localhost:11434/health ...
+[01:06:01.208 +  53.534s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:06:01.210 +  53.536s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:06:01.210 +  53.537s] [PHASE] >>> START: Phase 3: Long-Context Generation
+[01:06:01.211 +  53.538s] [REQ  ] --> Distributed KV Store Design (/v1/chat/completions)  {max_tokens=4096}
+[01:06:01.212 +  53.539s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=4096
+[01:06:16.851 +  69.177s] [RESP ] <-- Distributed KV Store Design [PASS] 15.640s  {tokens=4096, content_len=18473}
+[01:06:16.891 +  69.217s] [REQ  ] --> Compiler Pipeline Design (/v1/chat/completions)  {max_tokens=4096}
+[01:06:16.892 +  69.218s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=4096
+[01:06:32.389 +  84.715s] [RESP ] <-- Compiler Pipeline Design [PASS] 15.498s  {tokens=4096, content_len=9099}
+[01:06:32.429 +  84.755s] [PHASE] <<< END:   Phase 3: Long-Context Generation  {passed=2, failed=0, duration=31.22s}
+[01:06:32.429 +  84.756s] [HEALTH] Probing http://localhost:11434/health ...
+[01:06:32.431 +  84.758s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:06:32.433 +  84.759s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:06:32.434 +  84.760s] [PHASE] >>> START: Phase 4: Rapid Fire
+[01:06:32.435 +  84.761s] [INFO ] Rapid fire wave 1/3 starting (10 workers)
+[01:06:32.435 +  84.762s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:32.435 +  84.762s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:32.436 +  84.762s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:32.436 +  84.762s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:32.436 +  84.762s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:32.436 +  84.763s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:32.437 +  84.764s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:32.437 +  84.764s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:32.439 +  84.765s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:32.439 +  84.766s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:06:34.732 +  87.058s] [INFO ] Wave 1 done: 10 reqs in 2.30s (4.4 rps)
+[01:06:34.732 +  87.059s] [INFO ] Rapid fire wave 2/3 starting (10 workers)
+[01:06:34.733 +  87.060s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:34.734 +  87.060s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:34.734 +  87.060s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:34.734 +  87.060s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:34.734 +  87.060s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:34.734 +  87.061s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:34.734 +  87.061s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:34.735 +  87.061s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:34.735 +  87.061s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:06:34.736 +  87.062s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:37.124 +  89.451s] [INFO ] Wave 2 done: 10 reqs in 2.39s (4.2 rps)
+[01:06:37.164 +  89.491s] [INFO ] Rapid fire wave 3/3 starting (10 workers)
+[01:06:37.165 +  89.492s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:37.165 +  89.492s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:37.165 +  89.492s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:37.166 +  89.492s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:06:37.166 +  89.492s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:37.167 +  89.493s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:06:37.167 +  89.493s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:37.167 +  89.493s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:06:37.167 +  89.494s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:37.167 +  89.494s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:06:39.267 +  91.593s] [INFO ] Wave 3 done: 10 reqs in 2.10s (4.8 rps)
+[01:06:39.307 +  91.633s] [PHASE] <<< END:   Phase 4: Rapid Fire  {passed=30, failed=0, duration=6.87s}
+[01:06:39.310 +  91.637s] [HEALTH] Probing http://localhost:11434/health ...
+[01:06:39.312 +  91.639s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:06:39.316 +  91.642s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:06:39.317 +  91.643s] [PHASE] >>> START: Phase 5: Streaming
+[01:06:39.318 +  91.644s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=2048
+[01:06:39.318 +  91.644s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1536
+[01:06:39.318 +  91.644s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1536
+[01:06:39.318 +  91.645s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1024
+[01:06:39.318 +  91.645s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1536
+[01:06:46.229 +  98.555s] [RESP ] <-- stream#0: Red-Black Tree (C++) [PASS] 6.911s  {tokens=1163}
+[01:06:51.266 + 103.593s] [RESP ] <-- stream#1: LRU Cache (Rust) [PASS] 11.948s  {tokens=140}
+[01:06:56.293 + 108.619s] [RESP ] <-- stream#2: A* Pathfinding (Python) [PASS] 16.974s  {tokens=1125}
+[01:06:59.601 + 111.927s] [RESP ] <-- stream#3: River Crossing (Extended) [PASS] 20.282s  {tokens=875}
+[01:07:04.629 + 116.956s] [RESP ] <-- stream#4: Sum of Cubes Proof [PASS] 25.311s  {tokens=820}
+[01:07:04.669 + 116.996s] [PHASE] <<< END:   Phase 5: Streaming  {passed=5, failed=0, duration=25.35s}
+[01:07:04.670 + 116.997s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:04.672 + 116.999s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:07:04.674 + 117.000s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:04.675 + 117.001s] [PHASE] >>> START: Phase 5b: Streaming Disconnect
+[01:07:05.678 + 118.004s] [INFO ] Disconnect test 1/3: starting stream then aborting
+[01:07:05.718 + 118.044s] [REQ  ] --> disconnect#0 (/v1/chat/completions [STREAM DISCONNECT])
+[01:07:05.769 + 118.096s] [INFO ] Disconnect test 1: read 3 chunks, forcing close
+[01:07:05.770 + 118.097s] [RESP ] <-- disconnect#0 [PASS] 0.052s  {chunks_read=3}
+[01:07:05.771 + 118.097s] [INFO ] Disconnect test 2/3: starting stream then aborting
+[01:07:05.772 + 118.098s] [REQ  ] --> disconnect#1 (/v1/chat/completions [STREAM DISCONNECT])
+[01:07:05.824 + 118.150s] [INFO ] Disconnect test 2: read 3 chunks, forcing close
+[01:07:05.825 + 118.151s] [RESP ] <-- disconnect#1 [PASS] 0.052s  {chunks_read=3}
+[01:07:05.825 + 118.152s] [INFO ] Disconnect test 3/3: starting stream then aborting
+[01:07:05.826 + 118.153s] [REQ  ] --> disconnect#2 (/v1/chat/completions [STREAM DISCONNECT])
+[01:07:05.876 + 118.203s] [INFO ] Disconnect test 3: read 3 chunks, forcing close
+[01:07:05.877 + 118.204s] [RESP ] <-- disconnect#2 [PASS] 0.050s  {chunks_read=3}
+[01:07:07.880 + 120.207s] [PHASE] <<< END:   Phase 5b: Streaming Disconnect  {passed=4, failed=0, duration=3.21s}
+[01:07:07.921 + 120.247s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:07.923 + 120.249s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:07:07.924 + 120.251s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:07.925 + 120.252s] [PHASE] >>> START: Phase 6: Completions
+[01:07:07.926 + 120.252s] [REQ  ] --> Code completion (/v1/completions)  {max_tokens=256}
+[01:07:08.701 + 121.027s] [RESP ] <-- Code completion [PASS] 0.775s  {tokens=256}
+[01:07:08.741 + 121.068s] [REQ  ] --> Story continuation (/v1/completions)  {max_tokens=256}
+[01:07:09.531 + 121.857s] [RESP ] <-- Story continuation [PASS] 0.789s  {tokens=256}
+[01:07:09.572 + 121.898s] [REQ  ] --> Technical writing (/v1/completions)  {max_tokens=256}
+[01:07:10.363 + 122.690s] [RESP ] <-- Technical writing [PASS] 0.791s  {tokens=256}
+[01:07:10.403 + 122.730s] [REQ  ] --> Math (/v1/completions)  {max_tokens=128}
+[01:07:10.811 + 123.138s] [RESP ] <-- Math [PASS] 0.408s  {tokens=128}
+[01:07:10.851 + 123.178s] [PHASE] <<< END:   Phase 6: Completions  {passed=4, failed=0, duration=2.93s}
+[01:07:10.852 + 123.179s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:10.854 + 123.181s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:07:10.857 + 123.184s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:10.859 + 123.185s] [PHASE] >>> START: Phase 7: Embeddings
+[01:07:10.875 + 123.201s] [PHASE] <<< END:   Phase 7: Embeddings  {passed=6, failed=0, duration=0.02s}
+[01:07:10.877 + 123.204s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:10.880 + 123.207s] [HEALTH] Server responded HTTP 200 in 0.002s
+[01:07:10.884 + 123.211s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:10.885 + 123.212s] [PHASE] >>> START: Phase 8: Error Handling
+[01:07:10.886 + 123.213s] [REQ  ] --> Empty body (error_handling)  {expected=[400, 422]}
+[01:07:10.890 + 123.216s] [RESP ] <-- Empty body [PASS] 0.003s  {http_status=400, expected=[400, 422]}
+[01:07:10.891 + 123.217s] [REQ  ] --> No messages (error_handling)  {expected=[400, 422]}
+[01:07:10.893 + 123.219s] [RESP ] <-- No messages [PASS] 0.002s  {http_status=400, expected=[400, 422]}
+[01:07:10.893 + 123.220s] [REQ  ] --> Invalid temp (error_handling)  {expected=[400, 422]}
+[01:07:10.895 + 123.221s] [RESP ] <-- Invalid temp [PASS] 0.002s  {http_status=400, expected=[400, 422]}
+[01:07:10.896 + 123.222s] [REQ  ] --> 404 route (error_handling)  {expected=[404]}
+[01:07:10.898 + 123.224s] [RESP ] <-- 404 route [PASS] 0.002s  {http_status=404, expected=[404]}
+[01:07:10.898 + 123.225s] [REQ  ] --> Huge max_tokens (error_handling)  {expected=[200, 400, 422]}
+[01:07:10.900 + 123.226s] [RESP ] <-- Huge max_tokens [PASS] 0.002s  {http_status=400, expected=[200, 400, 422]}
+[01:07:10.901 + 123.228s] [PHASE] <<< END:   Phase 8: Error Handling  {passed=5, failed=0, duration=0.01s}
+[01:07:10.902 + 123.229s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:10.904 + 123.231s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:07:10.906 + 123.232s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:10.907 + 123.233s] [PHASE] >>> START: Phase 10: Vision Single Image
+[01:07:10.908 + 123.234s] [INFO ] Vision single task 1/21: Color ID (red)
+[01:07:10.909 + 123.235s] [REQ  ] --> Color ID (red) (/v1/chat/completions [VISION])  {image_key=red, max_tokens=32}
+[01:07:10.909 + 123.236s] [INFO ] Generating test image: red
+[01:07:10.913 + 123.239s] [INFO ] Image generated, size=246 bytes, sending request...
+[01:07:10.913 + 123.240s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=32  {img_payload_bytes=246, prompt_preview=What color is this image? Answer in one word.}
+[01:07:11.348 + 123.675s] [ERROR] <-- Color ID (red) [FAIL] 0.440s  {tokens=32, content_len=51, content_preview=<|user|>
+<|color|>
+<|color|>
+<|color|>
+<|color|>
+<|}
+[01:07:11.389 + 123.715s] [INFO ] Vision single task 2/21: Color ID (green)
+[01:07:11.390 + 123.716s] [REQ  ] --> Color ID (green) (/v1/chat/completions [VISION])  {image_key=green, max_tokens=32}
+[01:07:11.390 + 123.717s] [INFO ] Generating test image: green
+[01:07:11.393 + 123.720s] [INFO ] Image generated, size=246 bytes, sending request...
+[01:07:11.395 + 123.721s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=32  {img_payload_bytes=246, prompt_preview=What color is this image? Answer in one word.}
+[01:07:11.616 + 123.943s] [RESP ] <-- Color ID (green) [PASS] 0.226s  {tokens=32, content_len=143, content_preview=The image is a photograph of a blank canvas, devoid of any objects, text, or col}
+[01:07:11.657 + 123.984s] [INFO ] Vision single task 3/21: Pattern: checkerboard
+[01:07:11.658 + 123.985s] [REQ  ] --> Pattern: checkerboard (/v1/chat/completions [VISION])  {image_key=checkerboard, max_tokens=64}
+[01:07:11.659 + 123.985s] [INFO ] Generating test image: checkerboard
+[01:07:11.663 + 123.990s] [INFO ] Image generated, size=302 bytes, sending request...
+[01:07:11.664 + 123.990s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=302, prompt_preview=What pattern do you see? Is it a checkerboard, stripes, or s}
+[01:07:11.986 + 124.312s] [ERROR] <-- Pattern: checkerboard [FAIL] 0.328s  {tokens=64, content_len=74, content_preview=
+The answer is: 1, 4, 7, 8, 9, 11, 12, 13, 15, 16, 17, 18, 20, 21, 22, 24,}
+[01:07:12.026 + 124.352s] [INFO ] Vision single task 4/21: Stripe ordering
+[01:07:12.027 + 124.353s] [REQ  ] --> Stripe ordering (/v1/chat/completions [VISION])  {image_key=stripes, max_tokens=64}
+[01:07:12.027 + 124.354s] [INFO ] Generating test image: stripes
+[01:07:12.031 + 124.357s] [INFO ] Image generated, size=266 bytes, sending request...
+[01:07:12.031 + 124.358s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=266, prompt_preview=List the colors of the horizontal bands from top to bottom.}
+[01:07:12.351 + 124.677s] [ERROR] <-- Stripe ordering [FAIL] 0.324s  {tokens=64, content_len=113, content_preview=List the colors of the horizontal bands from top to bottom.
+
+ <|,|,|,|,|,|,|,|,|}
+[01:07:12.391 + 124.718s] [INFO ] Vision single task 5/21: OCR: read HELLO
+[01:07:12.392 + 124.718s] [REQ  ] --> OCR: read HELLO (/v1/chat/completions [VISION])  {image_key=pixel_hello, max_tokens=32}
+[01:07:12.393 + 124.719s] [INFO ] Generating test image: pixel_hello
+[01:07:12.396 + 124.722s] [INFO ] Image generated, size=310 bytes, sending request...
+[01:07:12.396 + 124.723s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=32  {img_payload_bytes=310, prompt_preview=Read the text in this image. What word does it say? Reply wi}
+[01:07:12.622 + 124.948s] [RESP ] <-- OCR: read HELLO [PASS] 0.230s  {tokens=32, content_len=100, content_preview=HELLO<||
+Read the text in this image. What word does it say? Reply with just the}
+[01:07:12.662 + 124.989s] [INFO ] Vision single task 6/21: OCR: read WORLD
+[01:07:12.663 + 124.990s] [REQ  ] --> OCR: read WORLD (/v1/chat/completions [VISION])  {image_key=pixel_world, max_tokens=32}
+[01:07:12.664 + 124.990s] [INFO ] Generating test image: pixel_world
+[01:07:12.667 + 124.994s] [INFO ] Image generated, size=338 bytes, sending request...
+[01:07:12.668 + 124.994s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=32  {img_payload_bytes=338, prompt_preview=What text is written in this image?}
+[01:07:12.889 + 125.215s] [ERROR] <-- OCR: read WORLD [FAIL] 0.226s  {tokens=32, content_len=94, content_preview=
+A: The text written in this image is "110DRLDO".
+
+The image is a simple, black-}
+[01:07:12.929 + 125.256s] [INFO ] Vision single task 7/21: Math: 4+2=?
+[01:07:12.930 + 125.256s] [REQ  ] --> Math: 4+2=? (/v1/chat/completions [VISION])  {image_key=math_equation, max_tokens=64}
+[01:07:12.930 + 125.257s] [INFO ] Generating test image: math_equation
+[01:07:12.933 + 125.260s] [INFO ] Image generated, size=326 bytes, sending request...
+[01:07:12.934 + 125.261s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=326, prompt_preview=This image shows a math equation. What is the equation and w}
+[01:07:13.254 + 125.580s] [ERROR] <-- Math: 4+2=? [FAIL] 0.324s  {tokens=64, content_len=66, content_preview=4 + 2 = 8.0.0.0.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.}
+[01:07:13.294 + 125.621s] [INFO ] Vision single task 8/21: Math: count bars in chart
+[01:07:13.295 + 125.621s] [REQ  ] --> Math: count bars in chart (/v1/chat/completions [VISION])  {image_key=bar_chart, max_tokens=64}
+[01:07:13.295 + 125.622s] [INFO ] Generating test image: bar_chart
+[01:07:13.328 + 125.655s] [INFO ] Image generated, size=558 bytes, sending request...
+[01:07:13.329 + 125.656s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=558, prompt_preview=How many bars are in this bar chart? Count them.}
+[01:07:13.648 + 125.975s] [ERROR] <-- Math: count bars in chart [FAIL] 0.354s  {tokens=64, content_len=53, content_preview=Which bar is the longest in the bar chart?
+
+
+
+
+
+
+
+
+
+
+}
+[01:07:13.688 + 126.015s] [INFO ] Vision single task 9/21: Chart: bar height ordering
+[01:07:13.689 + 126.016s] [REQ  ] --> Chart: bar height ordering (/v1/chat/completions [VISION])  {image_key=bar_chart, max_tokens=128}
+[01:07:13.690 + 126.016s] [INFO ] Generating test image: bar_chart
+[01:07:13.718 + 126.044s] [INFO ] Image generated, size=558 bytes, sending request...
+[01:07:13.719 + 126.045s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=128  {img_payload_bytes=558, prompt_preview=This is a bar chart with colored bars. Rank the bars from sh}
+[01:07:14.231 + 126.557s] [RESP ] <-- Chart: bar height ordering [PASS] 0.542s  {tokens=128, content_len=562, content_preview=The tallest bar is yellow. The shortest bar is red. The shortest bar is black. T}
+[01:07:14.273 + 126.600s] [INFO ] Vision single task 10/21: Chart: relative proportions
+[01:07:14.275 + 126.601s] [REQ  ] --> Chart: relative proportions (/v1/chat/completions [VISION])  {image_key=bar_chart, max_tokens=128}
+[01:07:14.275 + 126.602s] [INFO ] Generating test image: bar_chart
+[01:07:14.308 + 126.635s] [INFO ] Image generated, size=558 bytes, sending request...
+[01:07:14.309 + 126.636s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=128  {img_payload_bytes=558, prompt_preview=Looking at this bar chart, approximately what fraction of th}
+[01:07:14.826 + 127.153s] [RESP ] <-- Chart: relative proportions [PASS] 0.551s  {tokens=128, content_len=445, content_preview=The height of the shortest bar is the shortest fraction of the tallest bar's hei}
+[01:07:14.866 + 127.193s] [INFO ] Vision single task 11/21: Spatial: quadrant colors
+[01:07:14.871 + 127.198s] [REQ  ] --> Spatial: quadrant colors (/v1/chat/completions [VISION])  {image_key=color_grid, max_tokens=128}
+[01:07:14.872 + 127.198s] [INFO ] Generating test image: color_grid
+[01:07:14.889 + 127.216s] [INFO ] Image generated, size=554 bytes, sending request...
+[01:07:14.892 + 127.219s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=128  {img_payload_bytes=554, prompt_preview=This image is divided into four quadrants. What color is in }
+[01:07:15.404 + 127.731s] [RESP ] <-- Spatial: quadrant colors [PASS] 0.533s  {tokens=128, content_len=487, content_preview=This image is divided into four quadrants. What color is in the top-left? What c}
+[01:07:15.444 + 127.771s] [INFO ] Vision single task 12/21: Spatial: dot counting
+[01:07:15.447 + 127.774s] [REQ  ] --> Spatial: dot counting (/v1/chat/completions [VISION])  {image_key=scatter_dots, max_tokens=64}
+[01:07:15.448 + 127.774s] [INFO ] Generating test image: scatter_dots
+[01:07:15.490 + 127.816s] [INFO ] Image generated, size=726 bytes, sending request...
+[01:07:15.491 + 127.817s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=726, prompt_preview=How many colored dots/circles do you see in this image? Coun}
+[01:07:15.808 + 128.135s] [ERROR] <-- Spatial: dot counting [FAIL] 0.361s  {tokens=64, content_len=225, content_preview=The answer is blue.
+The answer is red.
+The answer is purple.
+The answer is yello}
+[01:07:15.849 + 128.176s] [INFO ] Vision single task 13/21: Spatial: dot positions
+[01:07:15.850 + 128.176s] [REQ  ] --> Spatial: dot positions (/v1/chat/completions [VISION])  {image_key=scatter_dots, max_tokens=256}
+[01:07:15.850 + 128.177s] [INFO ] Generating test image: scatter_dots
+[01:07:15.887 + 128.213s] [INFO ] Image generated, size=726 bytes, sending request...
+[01:07:15.887 + 128.214s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=256  {img_payload_bytes=726, prompt_preview=Describe the positions of each colored dot in this image. Wh}
+[01:07:16.783 + 129.109s] [RESP ] <-- Spatial: dot positions [PASS] 0.933s  {tokens=256, content_len=1018, content_preview=The answer is blue. The blue dot is in the top-right area. The answer is blue. T}
+[01:07:16.823 + 129.150s] [INFO ] Vision single task 14/21: Spatial: shape identification
+[01:07:16.824 + 129.151s] [REQ  ] --> Spatial: shape identification (/v1/chat/completions [VISION])  {image_key=shapes, max_tokens=256}
+[01:07:16.825 + 129.152s] [INFO ] Generating test image: shapes
+[01:07:16.853 + 129.180s] [INFO ] Image generated, size=838 bytes, sending request...
+[01:07:16.854 + 129.180s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=256  {img_payload_bytes=838, prompt_preview=What geometric shapes do you see in this image? Name each sh}
+[01:07:17.765 + 130.092s] [RESP ] <-- Spatial: shape identification [PASS] 0.941s  {tokens=256, content_len=396, content_preview=What is the color of the green shape?
+Answer: green.
+<||user|>
+<||user|>
+<||user}
+[01:07:17.805 + 130.132s] [INFO ] Vision single task 15/21: GUI: identify UI elements
+[01:07:17.806 + 130.133s] [REQ  ] --> GUI: identify UI elements (/v1/chat/completions [VISION])  {image_key=ui_mockup, max_tokens=256}
+[01:07:17.807 + 130.134s] [INFO ] Generating test image: ui_mockup
+[01:07:17.848 + 130.174s] [INFO ] Image generated, size=798 bytes, sending request...
+[01:07:17.848 + 130.175s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=256  {img_payload_bytes=798, prompt_preview=This looks like a user interface mockup. Identify all the UI}
+[01:07:18.763 + 131.089s] [RESP ] <-- GUI: identify UI elements [PASS] 0.957s  {tokens=256, content_len=1100, content_preview=The layout is a table. The table has two columns. The first column has five rows}
+[01:07:18.803 + 131.129s] [INFO ] Vision single task 16/21: GUI: generate HTML description
+[01:07:18.804 + 131.130s] [REQ  ] --> GUI: generate HTML description (/v1/chat/completions [VISION])  {image_key=ui_mockup, max_tokens=512}
+[01:07:18.805 + 131.131s] [INFO ] Generating test image: ui_mockup
+[01:07:18.837 + 131.163s] [INFO ] Image generated, size=798 bytes, sending request...
+[01:07:18.837 + 131.164s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=512  {img_payload_bytes=798, prompt_preview=Describe this UI mockup as if you were writing HTML/CSS. Wha}
+[01:07:20.532 + 132.859s] [ERROR] <-- GUI: generate HTML description [FAIL] 1.728s  {tokens=512, content_len=512, content_preview=<||
+<||
+<||
+<||
+<||
+<||
+<||
+<||
+
+<||
+<||
+<||
+<||
+<||
+<||
+<||
+<||
+<||
+
+<||
+<||
+<|}
+[01:07:20.573 + 132.899s] [INFO ] Vision single task 17/21: Depth: perspective lines
+[01:07:20.573 + 132.900s] [REQ  ] --> Depth: perspective lines (/v1/chat/completions [VISION])  {image_key=perspective, max_tokens=256}
+[01:07:20.574 + 132.900s] [INFO ] Generating test image: perspective
+[01:07:20.600 + 132.927s] [INFO ] Image generated, size=4170 bytes, sending request...
+[01:07:20.601 + 132.928s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=256  {img_payload_bytes=4170, prompt_preview=Does this image create a sense of depth or perspective? Desc}
+[01:07:21.494 + 133.821s] [RESP ] <-- Depth: perspective lines [PASS] 0.921s  {tokens=256, content_len=1237, content_preview=The image is a geometric pattern that appears to be symmetrical and symmetrical.}
+[01:07:21.534 + 133.861s] [INFO ] Vision single task 18/21: Depth: concentric rings
+[01:07:21.536 + 133.862s] [REQ  ] --> Depth: concentric rings (/v1/chat/completions [VISION])  {image_key=concentric, max_tokens=128}
+[01:07:21.537 + 133.863s] [INFO ] Generating test image: concentric
+[01:07:21.556 + 133.883s] [INFO ] Image generated, size=1138 bytes, sending request...
+[01:07:21.560 + 133.887s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=128  {img_payload_bytes=1138, prompt_preview=How many concentric rings/circles do you see? What colors ar}
+[01:07:22.065 + 134.391s] [RESP ] <-- Depth: concentric rings [PASS] 0.529s  {tokens=128, content_len=247, content_preview=The answer is a number. What is the number?
+\[
+\boxed{4}
+\]
+\[
+\text{The answer }
+[01:07:22.105 + 134.432s] [INFO ] Vision single task 19/21: Robustness: noisy image
+[01:07:22.106 + 134.432s] [REQ  ] --> Robustness: noisy image (/v1/chat/completions [VISION])  {image_key=noisy_gradient, max_tokens=128}
+[01:07:22.106 + 134.433s] [INFO ] Generating test image: noisy_gradient
+[01:07:22.150 + 134.477s] [INFO ] Image generated, size=29866 bytes, sending request...
+[01:07:22.151 + 134.478s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=128  {img_payload_bytes=29866, prompt_preview=Describe the overall color pattern in this image, ignoring a}
+[01:07:22.666 + 134.993s] [RESP ] <-- Robustness: noisy image [PASS] 0.560s  {tokens=128, content_len=640, content_preview=
+The image is a gradient of colors with a repeating pattern. The colors are grad}
+[01:07:22.706 + 135.033s] [INFO ] Vision single task 20/21: Adversarial: trick question
+[01:07:22.707 + 135.033s] [REQ  ] --> Adversarial: trick question (/v1/chat/completions [VISION])  {image_key=red, max_tokens=64}
+[01:07:22.708 + 135.034s] [INFO ] Generating test image: red
+[01:07:22.711 + 135.037s] [INFO ] Image generated, size=246 bytes, sending request...
+[01:07:22.711 + 135.038s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=246, prompt_preview=How many people are in this image? If there are no people, s}
+[01:07:23.031 + 135.358s] [RESP ] <-- Adversarial: trick question [PASS] 0.324s  {tokens=64, content_len=233, content_preview=
+There are no people in the image.
+The answer is: none. 
+The reasoning is: The i}
+[01:07:23.071 + 135.398s] [INFO ] Vision single task 21/21: Adversarial: impossible task
+[01:07:23.074 + 135.401s] [REQ  ] --> Adversarial: impossible task (/v1/chat/completions [VISION])  {image_key=checkerboard, max_tokens=64}
+[01:07:23.075 + 135.401s] [INFO ] Generating test image: checkerboard
+[01:07:23.079 + 135.405s] [INFO ] Image generated, size=302 bytes, sending request...
+[01:07:23.079 + 135.406s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=64  {img_payload_bytes=302, prompt_preview=Read any text that appears in this image. If there is no tex}
+[01:07:23.397 + 135.724s] [RESP ] <-- Adversarial: impossible task [PASS] 0.323s  {tokens=64, content_len=300, content_preview=Read any text that appears in this image. If there is no text, say 'no text foun}
+[01:07:23.437 + 135.764s] [PHASE] <<< END:   Phase 10: Vision Single Image  {passed=13, failed=8, duration=12.53s}
+[01:07:23.438 + 135.764s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:23.443 + 135.769s] [HEALTH] Server responded HTTP 200 in 0.004s
+[01:07:23.446 + 135.772s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:23.447 + 135.773s] [PHASE] >>> START: Phase 11: Vision Multi-Image
+[01:07:23.448 + 135.774s] [INFO ] Vision multi task 1/4: Multi: 3-color comparison
+[01:07:23.448 + 135.775s] [REQ  ] --> Multi: 3-color comparison (/v1/chat/completions [MULTI-VISION])  {image_keys=['red', 'green', 'blue'], max_tokens=128}
+[01:07:23.456 + 135.782s] [INFO ] Generated 3 images, sending request...
+[01:07:23.463 + 135.790s] [REQ  ] POST /v1/chat/completions [MULTI-VISION] images=3 max_tokens=128  {prompt_preview=I'm showing you three images. What color is each one? List t}
+[01:07:24.214 + 136.540s] [ERROR] <-- Multi: 3-color comparison [FAIL] 0.765s  {tokens=128, content_len=128, content_preview=<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+<||>
+}
+[01:07:24.254 + 136.581s] [INFO ] Vision multi task 2/4: Multi: pattern vs solid
+[01:07:24.255 + 136.581s] [REQ  ] --> Multi: pattern vs solid (/v1/chat/completions [MULTI-VISION])  {image_keys=['checkerboard', 'white'], max_tokens=128}
+[01:07:24.260 + 136.586s] [INFO ] Generated 2 images, sending request...
+[01:07:24.260 + 136.587s] [REQ  ] POST /v1/chat/completions [MULTI-VISION] images=2 max_tokens=128  {prompt_preview=Compare these two images. Which one has a pattern and which }
+[01:07:24.845 + 137.171s] [RESP ] <-- Multi: pattern vs solid [PASS] 0.590s  {tokens=128, content_len=309, content_preview=Compare these two images. Which one has a pattern and which is uniform?
+
+ <||>
+
+}
+[01:07:24.885 + 137.212s] [INFO ] Vision multi task 3/4: Multi: shape vs chart
+[01:07:24.886 + 137.213s] [REQ  ] --> Multi: shape vs chart (/v1/chat/completions [MULTI-VISION])  {image_keys=['shapes', 'bar_chart'], max_tokens=256}
+[01:07:24.942 + 137.269s] [INFO ] Generated 2 images, sending request...
+[01:07:24.943 + 137.270s] [REQ  ] POST /v1/chat/completions [MULTI-VISION] images=2 max_tokens=256  {prompt_preview=Compare these two images. One contains geometric shapes and }
+[01:07:25.922 + 138.248s] [RESP ] <-- Multi: shape vs chart [PASS] 1.036s  {tokens=256, content_len=999, content_preview=The chart shows the results of a survey asking people how many hours they spend }
+[01:07:25.962 + 138.288s] [INFO ] Vision multi task 4/4: Multi: OCR + math cross-ref
+[01:07:25.962 + 138.289s] [REQ  ] --> Multi: OCR + math cross-ref (/v1/chat/completions [MULTI-VISION])  {image_keys=['pixel_hello', 'math_equation'], max_tokens=128}
+[01:07:25.969 + 138.295s] [INFO ] Generated 2 images, sending request...
+[01:07:25.970 + 138.296s] [REQ  ] POST /v1/chat/completions [MULTI-VISION] images=2 max_tokens=128  {prompt_preview=Image 1 contains text and Image 2 contains a math expression}
+[01:07:26.569 + 138.895s] [RESP ] <-- Multi: OCR + math cross-ref [PASS] 0.607s  {tokens=128, content_len=344, content_preview=Image 1 contains text and Image 2 contains a math expression. What does Image 1 }
+[01:07:26.609 + 138.936s] [PHASE] <<< END:   Phase 11: Vision Multi-Image  {passed=3, failed=1, duration=3.16s}
+[01:07:26.610 + 138.937s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:26.613 + 138.940s] [HEALTH] Server responded HTTP 200 in 0.002s
+[01:07:26.616 + 138.942s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:26.617 + 138.944s] [PHASE] >>> START: Phase 12: Vision Streaming
+[01:07:26.618 + 138.944s] [INFO ] Vision stream task 1/3: Color ID (red)
+[01:07:26.619 + 138.945s] [REQ  ] --> vision_stream#0: Color ID (red) (/v1/chat/completions [VISION STREAM])
+[01:07:26.621 + 138.947s] [REQ  ] POST /v1/chat/completions [VISION] stream=True max_tokens=32  {img_payload_bytes=246, prompt_preview=What color is this image? Answer in one word.}
+[01:07:26.848 + 139.174s] [RESP ] <-- vision_stream#0: Color ID (red) [PASS] 0.229s  {tokens=9}
+[01:07:26.888 + 139.215s] [INFO ] Vision stream task 2/3: Color ID (green)
+[01:07:26.889 + 139.215s] [REQ  ] --> vision_stream#1: Color ID (green) (/v1/chat/completions [VISION STREAM])
+[01:07:26.892 + 139.218s] [REQ  ] POST /v1/chat/completions [VISION] stream=True max_tokens=32  {img_payload_bytes=246, prompt_preview=What color is this image? Answer in one word.}
+[01:07:27.120 + 139.447s] [RESP ] <-- vision_stream#1: Color ID (green) [PASS] 0.230s  {tokens=28}
+[01:07:27.160 + 139.487s] [INFO ] Vision stream task 3/3: Pattern: checkerboard
+[01:07:27.161 + 139.488s] [REQ  ] --> vision_stream#2: Pattern: checkerboard (/v1/chat/completions [VISION STREAM])
+[01:07:27.168 + 139.494s] [REQ  ] POST /v1/chat/completions [VISION] stream=True max_tokens=64  {img_payload_bytes=302, prompt_preview=What pattern do you see? Is it a checkerboard, stripes, or s}
+[01:07:27.488 + 139.815s] [RESP ] <-- vision_stream#2: Pattern: checkerboard [PASS] 0.326s  {tokens=23}
+[01:07:27.529 + 139.856s] [PHASE] <<< END:   Phase 12: Vision Streaming  {passed=3, failed=0, duration=0.91s}
+[01:07:27.530 + 139.856s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:27.532 + 139.858s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:07:27.534 + 139.860s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:27.535 + 139.861s] [PHASE] >>> START: Phase 13: Vision Concurrent (5 workers)
+[01:07:27.536 + 139.862s] [INFO ] Launching 5 concurrent vision workers
+[01:07:27.570 + 139.896s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=32  {img_payload_bytes=310, prompt_preview=Read the text in this image. What word does it say? Reply wi}
+[01:07:27.582 + 139.908s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=32  {img_payload_bytes=338, prompt_preview=What text is written in this image?}
+[01:07:27.639 + 139.966s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=256  {img_payload_bytes=4170, prompt_preview=Does this image create a sense of depth or perspective? Desc}
+[01:07:27.661 + 139.988s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=128  {img_payload_bytes=29866, prompt_preview=Describe the overall color pattern in this image, ignoring a}
+[01:07:27.661 + 139.988s] [REQ  ] POST /v1/chat/completions [VISION] stream=False max_tokens=256  {img_payload_bytes=726, prompt_preview=Describe the positions of each colored dot in this image. Wh}
+[01:07:27.885 + 140.212s] [ERROR] <-- vision_conc#4: OCR: read WORLD [FAIL] 0.305s  {tokens=32}
+[01:07:28.108 + 140.434s] [RESP ] <-- vision_conc#3: OCR: read HELLO [PASS] 0.545s  {tokens=32}
+[01:07:28.999 + 141.326s] [RESP ] <-- vision_conc#0: Depth: perspective lines [PASS] 1.463s  {tokens=256}
+[01:07:29.896 + 142.222s] [RESP ] <-- vision_conc#2: Spatial: dot positions [PASS] 2.339s  {tokens=256}
+[01:07:30.403 + 142.729s] [RESP ] <-- vision_conc#1: Robustness: noisy image [PASS] 2.861s  {tokens=128}
+[01:07:30.444 + 142.770s] [PHASE] <<< END:   Phase 13: Vision Concurrent (5 workers)  {passed=4, failed=1, duration=2.91s}
+[01:07:30.444 + 142.771s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:30.447 + 142.774s] [HEALTH] Server responded HTTP 200 in 0.002s
+[01:07:30.449 + 142.775s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:30.450 + 142.776s] [PHASE] >>> START: Phase 14: Vision Multi-Turn
+[01:07:30.451 + 142.777s] [INFO ] Generating stripes image for multi-turn vision
+[01:07:30.453 + 142.779s] [INFO ] Vision multi-turn: sending Turn 1 (describe image)
+[01:07:30.454 + 142.780s] [REQ  ] --> Vision multi-turn/turn1 (/v1/chat/completions [VISION])
+[01:07:30.964 + 143.291s] [RESP ] <-- Vision multi-turn/turn1 [PASS] 0.514s  {content_len=553, content_preview=Describe the image.
+
+The image is a simple, colorful, and rectangular shape with}
+[01:07:31.004 + 143.331s] [INFO ] Vision multi-turn: Turn 1 got 553 chars, sending Turn 2
+[01:07:31.005 + 143.332s] [REQ  ] --> Vision multi-turn/turn2 (/v1/chat/completions [VISION follow-up])
+[01:07:31.401 + 143.727s] [RESP ] <-- Vision multi-turn/turn2 [PASS] 0.950s  {tokens=192, content_len=299, content_preview=There are two distinct color bands: red and green.
+
+### Description
+
+The image i}
+[01:07:31.441 + 143.768s] [PHASE] <<< END:   Phase 14: Vision Multi-Turn  {passed=1, failed=0, duration=0.99s}
+[01:07:31.444 + 143.770s] [HEALTH] Probing http://localhost:11434/health ...
+[01:07:31.447 + 143.773s] [HEALTH] Server responded HTTP 200 in 0.002s
+[01:07:31.451 + 143.777s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:07:31.452 + 143.778s] [PHASE] >>> START: Phase 9: Sustained Load (60s, 10 workers)
+[01:07:31.453 + 143.780s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:31.454 + 143.781s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:31.454 + 143.781s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:31.454 + 143.781s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:31.454 + 143.781s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:31.455 + 143.781s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:31.455 + 143.781s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:31.455 + 143.782s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:31.456 + 143.782s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:31.458 + 143.784s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:33.060 + 145.386s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:34.655 + 146.982s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:07:34.883 + 147.210s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:35.105 + 147.432s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:35.525 + 147.851s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:35.926 + 148.253s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:36.152 + 148.478s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:37.748 + 150.074s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:37.872 + 150.198s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:38.099 + 150.426s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:38.240 + 150.566s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:38.372 + 150.699s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:38.592 + 150.919s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:38.999 + 151.326s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:39.080 + 151.407s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:39.308 + 151.635s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:39.535 + 151.861s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:39.667 + 151.994s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:39.888 + 152.215s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:41.483 + 153.809s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:41.707 + 154.033s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:42.114 + 154.440s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:42.340 + 154.666s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:42.569 + 154.896s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:42.981 + 155.308s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:43.203 + 155.530s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:43.431 + 155.758s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:43.839 + 156.166s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:43.886 + 156.212s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:44.013 + 156.339s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:45.602 + 157.929s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:46.014 + 158.341s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:46.438 + 158.764s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:48.028 + 160.354s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:07:48.153 + 160.479s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:49.741 + 162.068s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:07:49.875 + 162.202s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:50.009 + 162.335s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:50.417 + 162.744s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:50.830 + 163.157s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:07:51.240 + 163.567s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:51.648 + 163.975s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:51.869 + 164.195s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:51.948 + 164.275s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:52.169 + 164.496s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:52.250 + 164.576s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:52.332 + 164.658s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:52.548 + 164.875s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:52.774 + 165.100s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:52.905 + 165.231s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:53.033 + 165.360s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:53.258 + 165.584s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:53.483 + 165.810s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:55.077 + 167.404s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:55.201 + 167.528s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:55.426 + 167.752s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:57.013 + 169.340s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:07:57.242 + 169.568s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:07:57.649 + 169.976s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:07:58.064 + 170.391s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:07:58.293 + 170.620s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:07:59.899 + 172.225s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:00.123 + 172.450s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:00.533 + 172.859s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:00.656 + 172.983s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:01.071 + 173.398s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:02.659 + 174.985s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:02.884 + 175.211s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:03.299 + 175.625s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:03.379 + 175.706s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:03.512 + 175.838s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:03.737 + 176.063s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:04.144 + 176.471s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:04.372 + 176.699s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:04.785 + 177.112s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:05.193 + 177.519s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:05.418 + 177.745s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:05.498 + 177.825s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:08:05.723 + 178.049s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:05.948 + 178.275s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:06.357 + 178.684s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:06.584 + 178.911s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:06.810 + 179.136s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:07.220 + 179.546s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:07.299 + 179.626s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:07.708 + 180.034s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:07.841 + 180.167s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:09.441 + 181.767s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:09.568 + 181.895s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:09.793 + 182.119s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:10.205 + 182.531s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:10.433 + 182.760s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:10.659 + 182.986s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:10.784 + 183.110s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:11.011 + 183.338s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:11.420 + 183.747s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:11.550 + 183.876s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:11.774 + 184.101s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:12.184 + 184.510s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:12.407 + 184.734s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:12.809 + 185.136s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:13.229 + 185.555s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:13.448 + 185.774s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:13.577 + 185.904s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:13.982 + 186.309s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:14.105 + 186.431s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:08:14.331 + 186.658s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:14.738 + 187.064s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:15.145 + 187.471s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:15.559 + 187.885s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:15.776 + 188.102s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:16.001 + 188.327s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:16.127 + 188.454s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:16.540 + 188.867s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:08:16.759 + 189.086s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:18.335 + 190.661s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:08:18.464 + 190.790s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:18.679 + 191.006s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:18.810 + 191.136s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:18.939 + 191.266s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:08:19.351 + 191.678s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:19.765 + 192.092s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:19.982 + 192.308s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:21.567 + 193.893s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:21.978 + 194.304s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:23.569 + 195.895s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:23.795 + 196.122s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:24.021 + 196.348s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:24.104 + 196.431s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:25.694 + 198.021s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:25.910 + 198.237s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:26.130 + 198.456s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:26.357 + 198.684s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:26.440 + 198.767s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:26.667 + 198.993s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:26.745 + 199.071s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:27.161 + 199.487s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:27.241 + 199.568s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:27.653 + 199.980s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:27.706 + 200.032s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:27.929 + 200.255s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:28.151 + 200.477s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=512
+[01:08:28.286 + 200.612s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:28.698 + 201.025s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[01:08:29.107 + 201.433s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:29.525 + 201.851s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:29.656 + 201.982s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:29.877 + 202.203s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[01:08:30.287 + 202.614s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:30.515 + 202.841s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[01:08:30.741 + 203.068s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[01:08:41.463 + 213.790s] [PHASE] <<< END:   Phase 9: Sustained Load  {passed=161, failed=0, duration=70.01s}
+[01:08:41.503 + 213.830s] [HEALTH] Probing http://localhost:11434/health ...
+[01:08:41.506 + 213.832s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:08:41.508 + 213.835s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:08:41.511 + 213.838s] [INFO ] === RUN COMPLETE === total=268 passed=258 failed=10 rate=96.3% duration=213.8s tokens=54561
+[01:08:41.514 + 213.840s] [HEALTH] Probing http://localhost:11434/health ...
+[01:08:41.517 + 213.844s] [HEALTH] Server responded HTTP 200 in 0.001s
+[01:08:41.520 + 213.847s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[01:08:41.521 + 213.848s] [INFO ] Log file closing
