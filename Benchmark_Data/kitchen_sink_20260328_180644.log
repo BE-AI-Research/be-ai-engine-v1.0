@@ -1,0 +1,170 @@
+[18:06:44.808 +   0.000s] [INFO ] Log file opened: /mnt/7b9a9b9c-5e1a-4938-a6df-d26a3d856f3a/be-ai-engine-v1.0/kitchen_sink_20260328_180644.log
+[18:06:44.848 +   0.041s] [INFO ] PID=133114, Python=3.12.3
+[18:06:44.850 +   0.042s] [INFO ] === RUN START === server=http://localhost:11434 concurrency=10 waves=3 timeout=120s quick=True vision=None
+[18:06:44.853 +   0.046s] [INFO ] Server health check: OK
+[18:06:45.637 +   0.829s] [PHASE] >>> START: Phase 0: Connectivity & Health Checks
+[18:06:45.677 +   0.869s] [REQ  ] --> Health (root) (GET /health)
+[18:06:45.680 +   0.872s] [RESP ] <-- Health (root) [PASS] 0.004s  {http_status=200}
+[18:06:45.681 +   0.873s] [REQ  ] --> Health (v1) (GET /v1/health)
+[18:06:45.682 +   0.875s] [RESP ] <-- Health (v1) [PASS] 0.002s  {http_status=200}
+[18:06:45.683 +   0.875s] [REQ  ] --> Models list (GET /v1/models)
+[18:06:45.685 +   0.877s] [RESP ] <-- Models list [PASS] 0.002s  {http_status=200}
+[18:06:45.686 +   0.878s] [REQ  ] --> Server status (GET /api/status)
+[18:06:45.687 +   0.879s] [RESP ] <-- Server status [PASS] 0.002s  {http_status=200}
+[18:06:45.688 +   0.880s] [REQ  ] --> Metrics (GET /api/metrics)
+[18:06:45.690 +   0.882s] [RESP ] <-- Metrics [PASS] 0.002s  {http_status=200}
+[18:06:45.691 +   0.883s] [REQ  ] --> Batch info (GET /api/batch)
+[18:06:45.692 +   0.884s] [RESP ] <-- Batch info [PASS] 0.001s  {http_status=200}
+[18:06:45.693 +   0.885s] [REQ  ] --> KV cache stats (GET /api/kv-cache)
+[18:06:45.695 +   0.887s] [RESP ] <-- KV cache stats [PASS] 0.002s  {http_status=200}
+[18:06:45.702 +   0.894s] [REQ  ] --> Capabilities (GET /api/capabilities)
+[18:06:45.704 +   0.896s] [RESP ] <-- Capabilities [PASS] 0.002s  {http_status=200}
+[18:06:45.705 +   0.897s] [PHASE] <<< END:   Phase 0: Connectivity & Health Checks  {passed=8, failed=0, duration=0.03s}
+[18:06:45.705 +   0.897s] [PHASE] >>> START: Phase 1: Coding Problems
+[18:06:45.706 +   0.898s] [REQ  ] --> Red-Black Tree (C++) (/v1/chat/completions)  {max_tokens=2048}
+[18:06:45.707 +   0.899s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[18:06:56.296 +  11.488s] [RESP ] <-- Red-Black Tree (C++) [PASS] 10.590s  {tokens=2048, content_len=8554}
+[18:06:56.337 +  11.529s] [REQ  ] --> LRU Cache (Rust) (/v1/chat/completions)  {max_tokens=1536}
+[18:06:56.338 +  11.530s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1536
+[18:07:03.068 +  18.260s] [RESP ] <-- LRU Cache (Rust) [PASS] 6.731s  {tokens=1455, content_len=5548}
+[18:07:03.109 +  18.301s] [REQ  ] --> A* Pathfinding (Python) (/v1/chat/completions)  {max_tokens=1536}
+[18:07:03.109 +  18.301s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1536
+[18:07:10.228 +  25.420s] [RESP ] <-- A* Pathfinding (Python) [PASS] 7.119s  {tokens=1536, content_len=6350}
+[18:07:10.268 +  25.460s] [REQ  ] --> SQL Query Optimizer (Python) (/v1/chat/completions)  {max_tokens=2048}
+[18:07:10.269 +  25.461s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[18:07:13.306 +  28.498s] [RESP ] <-- SQL Query Optimizer (Python) [PASS] 3.037s  {tokens=649, content_len=2802}
+[18:07:13.346 +  28.538s] [REQ  ] --> Graph Algorithms (JS) (/v1/chat/completions)  {max_tokens=2048}
+[18:07:13.346 +  28.539s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[18:07:18.152 +  33.344s] [RESP ] <-- Graph Algorithms (JS) [PASS] 4.806s  {tokens=1032, content_len=3580}
+[18:07:18.192 +  33.384s] [PHASE] <<< END:   Phase 1: Coding Problems  {passed=5, failed=0, duration=32.49s}
+[18:07:18.193 +  33.385s] [HEALTH] Probing http://localhost:11434/health ...
+[18:07:18.195 +  33.387s] [HEALTH] Server responded HTTP 200 in 0.002s
+[18:07:18.197 +  33.389s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:07:18.198 +  33.390s] [PHASE] >>> START: Phase 2: Reasoning Problems
+[18:07:18.199 +  33.391s] [REQ  ] --> River Crossing (Extended) (/v1/chat/completions)  {max_tokens=1024}
+[18:07:18.199 +  33.391s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1024
+[18:07:23.075 +  38.267s] [RESP ] <-- River Crossing (Extended) [PASS] 4.876s  {tokens=1024, content_len=4119}
+[18:07:23.115 +  38.307s] [REQ  ] --> Sum of Cubes Proof (/v1/chat/completions)  {max_tokens=1536}
+[18:07:23.116 +  38.308s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=1536
+[18:07:30.182 +  45.374s] [RESP ] <-- Sum of Cubes Proof [PASS] 7.067s  {tokens=1536, content_len=2367}
+[18:07:30.223 +  45.415s] [REQ  ] --> Einstein's Riddle (/v1/chat/completions)  {max_tokens=2048}
+[18:07:30.223 +  45.415s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[18:07:39.980 +  55.172s] [RESP ] <-- Einstein's Riddle [PASS] 9.757s  {tokens=2048, content_len=8975}
+[18:07:40.020 +  55.212s] [REQ  ] --> 12 Balls Problem (/v1/chat/completions)  {max_tokens=2048}
+[18:07:40.021 +  55.213s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=2048
+[18:07:49.545 +  64.737s] [RESP ] <-- 12 Balls Problem [PASS] 9.525s  {tokens=2048, content_len=9137}
+[18:07:49.585 +  64.778s] [PHASE] <<< END:   Phase 2: Reasoning Problems  {passed=4, failed=0, duration=31.39s}
+[18:07:49.586 +  64.778s] [HEALTH] Probing http://localhost:11434/health ...
+[18:07:49.588 +  64.780s] [HEALTH] Server responded HTTP 200 in 0.001s
+[18:07:49.589 +  64.781s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:07:49.590 +  64.782s] [PHASE] >>> START: Phase 4: Rapid Fire
+[18:07:49.590 +  64.782s] [INFO ] Rapid fire wave 1/3 starting (10 workers)
+[18:07:49.591 +  64.783s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[18:07:49.591 +  64.783s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:49.591 +  64.783s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:49.591 +  64.783s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:49.591 +  64.784s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:49.592 +  64.784s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:49.592 +  64.784s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:49.592 +  64.785s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:49.593 +  64.785s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:49.593 +  64.785s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:54.110 +  69.302s] [INFO ] Wave 1 done: 10 reqs in 4.52s (2.2 rps)
+[18:07:54.150 +  69.343s] [INFO ] Rapid fire wave 2/3 starting (10 workers)
+[18:07:54.152 +  69.344s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[18:07:54.152 +  69.344s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:54.153 +  69.345s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[18:07:54.154 +  69.346s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:54.154 +  69.346s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:54.154 +  69.346s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:54.154 +  69.346s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:54.155 +  69.347s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:54.155 +  69.347s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:54.155 +  69.347s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:57.807 +  72.999s] [INFO ] Wave 2 done: 10 reqs in 3.66s (2.7 rps)
+[18:07:57.847 +  73.040s] [INFO ] Rapid fire wave 3/3 starting (10 workers)
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=32
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:07:57.849 +  73.041s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[18:07:57.850 +  73.042s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=16
+[18:07:57.850 +  73.042s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=64
+[18:07:57.850 +  73.042s] [REQ  ] POST /v1/chat/completions stream=False max_tokens=128
+[18:08:00.926 +  76.118s] [INFO ] Wave 3 done: 10 reqs in 3.08s (3.2 rps)
+[18:08:00.966 +  76.159s] [PHASE] <<< END:   Phase 4: Rapid Fire  {passed=30, failed=0, duration=11.38s}
+[18:08:00.967 +  76.159s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:00.969 +  76.161s] [HEALTH] Server responded HTTP 200 in 0.002s
+[18:08:00.971 +  76.163s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:00.972 +  76.164s] [PHASE] >>> START: Phase 5: Streaming
+[18:08:00.973 +  76.166s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=2048
+[18:08:00.974 +  76.166s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1536
+[18:08:00.974 +  76.166s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1536
+[18:08:00.974 +  76.166s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1024
+[18:08:00.974 +  76.166s] [REQ  ] POST /v1/chat/completions stream=True max_tokens=1536
+[18:08:10.517 +  85.709s] [RESP ] <-- stream#0: Red-Black Tree (C++) [PASS] 9.541s  {tokens=893}
+[18:08:16.726 +  91.918s] [RESP ] <-- stream#1: LRU Cache (Rust) [PASS] 15.752s  {tokens=491}
+[18:08:23.876 +  99.068s] [RESP ] <-- stream#2: A* Pathfinding (Python) [PASS] 22.901s  {tokens=774}
+[18:08:28.764 + 103.956s] [RESP ] <-- stream#3: River Crossing (Extended) [PASS] 27.790s  {tokens=770}
+[18:08:32.490 + 107.682s] [RESP ] <-- stream#4: Sum of Cubes Proof [PASS] 31.515s  {tokens=525}
+[18:08:32.532 + 107.724s] [PHASE] <<< END:   Phase 5: Streaming  {passed=5, failed=0, duration=31.56s}
+[18:08:32.533 + 107.725s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:32.535 + 107.727s] [HEALTH] Server responded HTTP 200 in 0.002s
+[18:08:32.537 + 107.729s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:32.538 + 107.730s] [PHASE] >>> START: Phase 5b: Streaming Disconnect
+[18:08:33.540 + 108.732s] [INFO ] Disconnect test 1/3: starting stream then aborting
+[18:08:33.580 + 108.773s] [REQ  ] --> disconnect#0 (/v1/chat/completions [STREAM DISCONNECT])
+[18:08:33.685 + 108.877s] [INFO ] Disconnect test 1: read 3 chunks, forcing close
+[18:08:33.769 + 108.961s] [RESP ] <-- disconnect#0 [PASS] 0.188s  {chunks_read=3}
+[18:08:33.770 + 108.962s] [INFO ] Disconnect test 2/3: starting stream then aborting
+[18:08:33.771 + 108.963s] [REQ  ] --> disconnect#1 (/v1/chat/completions [STREAM DISCONNECT])
+[18:08:33.869 + 109.061s] [INFO ] Disconnect test 2: read 3 chunks, forcing close
+[18:08:33.869 + 109.062s] [RESP ] <-- disconnect#1 [PASS] 0.098s  {chunks_read=3}
+[18:08:33.870 + 109.062s] [INFO ] Disconnect test 3/3: starting stream then aborting
+[18:08:33.871 + 109.063s] [REQ  ] --> disconnect#2 (/v1/chat/completions [STREAM DISCONNECT])
+[18:08:33.986 + 109.178s] [INFO ] Disconnect test 3: read 3 chunks, forcing close
+[18:08:34.062 + 109.254s] [RESP ] <-- disconnect#2 [PASS] 0.191s  {chunks_read=3}
+[18:08:36.065 + 111.257s] [PHASE] <<< END:   Phase 5b: Streaming Disconnect  {passed=4, failed=0, duration=3.53s}
+[18:08:36.106 + 111.298s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:36.109 + 111.301s] [HEALTH] Server responded HTTP 200 in 0.002s
+[18:08:36.111 + 111.303s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:36.112 + 111.304s] [PHASE] >>> START: Phase 6: Completions
+[18:08:36.113 + 111.305s] [REQ  ] --> Code completion (/v1/completions)  {max_tokens=256}
+[18:08:37.092 + 112.284s] [RESP ] <-- Code completion [PASS] 0.980s  {tokens=220}
+[18:08:37.132 + 112.324s] [REQ  ] --> Story continuation (/v1/completions)  {max_tokens=256}
+[18:08:38.318 + 113.510s] [RESP ] <-- Story continuation [PASS] 1.185s  {tokens=256}
+[18:08:38.358 + 113.550s] [REQ  ] --> Technical writing (/v1/completions)  {max_tokens=256}
+[18:08:39.553 + 114.745s] [RESP ] <-- Technical writing [PASS] 1.195s  {tokens=256}
+[18:08:39.593 + 114.785s] [REQ  ] --> Math (/v1/completions)  {max_tokens=128}
+[18:08:40.229 + 115.421s] [RESP ] <-- Math [PASS] 0.636s  {tokens=128}
+[18:08:40.269 + 115.461s] [PHASE] <<< END:   Phase 6: Completions  {passed=4, failed=0, duration=4.16s}
+[18:08:40.270 + 115.462s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:40.272 + 115.464s] [HEALTH] Server responded HTTP 200 in 0.001s
+[18:08:40.274 + 115.466s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:40.275 + 115.467s] [PHASE] >>> START: Phase 7: Embeddings
+[18:08:40.290 + 115.482s] [PHASE] <<< END:   Phase 7: Embeddings  {passed=6, failed=0, duration=0.01s}
+[18:08:40.295 + 115.487s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:40.297 + 115.489s] [HEALTH] Server responded HTTP 200 in 0.001s
+[18:08:40.298 + 115.491s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:40.299 + 115.491s] [PHASE] >>> START: Phase 8: Error Handling
+[18:08:40.300 + 115.492s] [REQ  ] --> Empty body (error_handling)  {expected=[400, 422]}
+[18:08:40.302 + 115.494s] [RESP ] <-- Empty body [PASS] 0.002s  {http_status=400, expected=[400, 422]}
+[18:08:40.303 + 115.495s] [REQ  ] --> No messages (error_handling)  {expected=[400, 422]}
+[18:08:40.305 + 115.497s] [RESP ] <-- No messages [PASS] 0.002s  {http_status=400, expected=[400, 422]}
+[18:08:40.306 + 115.498s] [REQ  ] --> Invalid temp (error_handling)  {expected=[400, 422]}
+[18:08:40.308 + 115.500s] [RESP ] <-- Invalid temp [PASS] 0.002s  {http_status=400, expected=[400, 422]}
+[18:08:40.309 + 115.501s] [REQ  ] --> 404 route (error_handling)  {expected=[404]}
+[18:08:40.311 + 115.503s] [RESP ] <-- 404 route [PASS] 0.002s  {http_status=404, expected=[404]}
+[18:08:40.312 + 115.504s] [REQ  ] --> Huge max_tokens (error_handling)  {expected=[200, 400, 422]}
+[18:08:40.314 + 115.506s] [RESP ] <-- Huge max_tokens [PASS] 0.003s  {http_status=400, expected=[200, 400, 422]}
+[18:08:40.315 + 115.507s] [PHASE] <<< END:   Phase 8: Error Handling  {passed=5, failed=0, duration=0.02s}
+[18:08:40.316 + 115.508s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:40.318 + 115.510s] [HEALTH] Server responded HTTP 200 in 0.001s
+[18:08:40.319 + 115.512s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:40.321 + 115.513s] [INFO ] === RUN COMPLETE === total=71 passed=71 failed=0 rate=100.0% duration=115.5s tokens=19616
+[18:08:40.322 + 115.514s] [HEALTH] Probing http://localhost:11434/health ...
+[18:08:40.323 + 115.516s] [HEALTH] Server responded HTTP 200 in 0.001s
+[18:08:40.325 + 115.517s] [HEALTH] Metrics: activeConnections=1, memory_mb=?
+[18:08:40.327 + 115.519s] [INFO ] Log file closing
